@@ -33,5 +33,22 @@ class Solution2(object):
         return str(x) == str(x)[::-1]
 
 
-test = Solution2()
-print(test.isPalindrome(121))
+# 为了减少内存空间，加快运行时间，可以考虑反转一半的数字
+class Solution3(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if x < 0 or (x % 10 == 0 and x != 0):  # 数字为负，或最后一位为负0且原数字不为0则返回错
+            return False
+        revertedNumber = 0
+        while x > revertedNumber:
+            revertedNumber = revertedNumber * 10 + x % 10
+            x = x//10
+
+        return revertedNumber == x or x == revertedNumber // 10  # 当为数字数位为奇数时，中间位不影响，直接省去
+
+
+test = Solution3()
+print(test.isPalindrome(-121))
