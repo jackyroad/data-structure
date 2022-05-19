@@ -26,5 +26,5 @@ if __name__ == '__main__':
     s.push({1, 2, 3})
     s.push(("a", "b"))
     print(s.pop(), s.pop())
-    print(s.peak())
+    print(s.peak())  # 返回字符串
     print(s.size())
